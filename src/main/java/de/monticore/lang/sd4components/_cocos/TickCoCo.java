@@ -34,8 +34,7 @@ public class TickCoCo implements SDBasisASTSDBodyCoCo {
           }
             // handle messages
           List<ASTSDPort> traversedP = new ArrayList<>();
-          List<ASTSDSendMessage> traversedM = new ArrayList<>();
-            for (ASTSDSendMessage tr : traversedM) {
+            for (ASTSDSendMessage tr : messages) {
               if(tr.isPresentSDSource() && SD4ComponentsMill.typeDispatcher().isSD4ComponentsASTSDPort(tr.getSDSource())){
                 ASTSDPort source = SD4ComponentsMill.typeDispatcher().asSD4ComponentsASTSDPort(tr.getSDSource());
                 if(source.getPortSymbol().getTiming().getName().equals("sync")){
