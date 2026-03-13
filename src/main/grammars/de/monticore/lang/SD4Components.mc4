@@ -93,7 +93,7 @@ grammar SD4Components extends
    * This block should not allow event-based messages within it.
    */
   SDSyncBlock implements SDElement =
-    key("Sync") "{" SDElement* "}";
+    "Sync" "{" SDElement* "}";
 
   /*
    * Tick definition to model the occurence of ticks.
