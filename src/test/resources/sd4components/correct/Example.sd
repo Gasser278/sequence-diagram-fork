@@ -22,7 +22,7 @@ sequencediagram Example {
 
   Sync{
   a1.pOut -> b1.pIn : 2;
-  };
+  }
 
   assert c2.pOut == 4;
 }

@@ -1,0 +1,10 @@
+/* (c) https://github.com/MontiCore/monticore */
+package sd4components.incorrect;
+
+sequencediagram NonSyncOutPortInSyncBlock {
+  a:ASync;
+  b:B;
+
+  Sync{
+  b.pOut -> a.pIn : 2;
+  }
