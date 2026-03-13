@@ -3,22 +3,27 @@ package de.monticore.lang.sd4components._cocos;
 import de.monticore.lang.sd4components._ast.ASTSDPort;
 import de.monticore.lang.sdbasis._ast.ASTSDBody;
 import de.monticore.lang.sdbasis._ast.ASTSDSendMessage;
+import de.monticore.lang.sdbasis._ast.ASTSequenceDiagram;
 import de.monticore.lang.sdbasis._cocos.SDBasisASTSDBodyCoCo;
+import de.monticore.lang.sdbasis._cocos.SDBasisASTSequenceDiagramCoCo;
+import de.monticore.umlstereotype._ast.ASTStereoValue;
 import de.se_rwth.commons.logging.Log;
 import de.monticore.lang.sd4components.SD4ComponentsMill;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Two synchronous messages within the same tick lifetime cannot be sent from the same port.
+ * When complete, two synchronous messages within the same tick lifetime cannot be sent from the same port.
  */
-public class TickCoCo implements SDBasisASTSDBodyCoCo {
+public class TickCoCo implements SDBasisASTSequenceDiagramCoCo {
 
   public static final String MESSAGE_ERROR = "0xB500C: "
     + "Two sync ports send within a tick lifetime.";
 
   @Override
-  public void check(ASTSDBody node) {
+  public void check(ASTSequenceDiagram sd) {
+    if(sd.getStereotype().getValuesList().stream().map(ASTStereoValue::getValue).toList().contains("complete")){
+      ASTSDBody node = sd.getSDBody();
 
     for(int i = 0; i < node.getSDElementList().size() - 1; i++) {
       for(int j = i + 1; j < node.getSDElementList().size(); j++) {
@@ -51,6 +56,6 @@ public class TickCoCo implements SDBasisASTSDBodyCoCo {
         }
       }
     }
-
+  }
 }
 
