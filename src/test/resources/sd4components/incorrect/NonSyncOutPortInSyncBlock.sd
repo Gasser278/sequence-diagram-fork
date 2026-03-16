@@ -2,9 +2,10 @@
 package sd4components.incorrect;
 
 sequencediagram NonSyncOutPortInSyncBlock {
-  a:ASync;
-  b:B;
+  b1:B;
+  b2:B;
 
   Sync{
-  b.pOut -> a.pIn : 2;
+  b1.pOut -> b2.pIn : 2;
+  }
   }

@@ -21,15 +21,15 @@ public class SyncPortSendsOnceCoCo implements SD4ComponentsASTSDSyncBlockCoCo {
 
   @Override
   public void check(ASTSDSyncBlock node) {
-    List<ASTSDPort> traversed = new ArrayList<>();
+    List<String> traversed = new ArrayList<>();
     //get messages
     for (ASTSDSendMessage message : node.streamSDElements()
       .filter(SD4ComponentsMill.typeDispatcher()::isSDBasisASTSDSendMessage)
       .map(SD4ComponentsMill.typeDispatcher()::asSDBasisASTSDSendMessage)
-      .collect(Collectors.toList())) {
+      .toList()) {
       if (message.isPresentSDSource() && SD4ComponentsMill.typeDispatcher().isSD4ComponentsASTSDPort(message.getSDSource())
       ) {
-        ASTSDPort sourcePort = SD4ComponentsMill.typeDispatcher().asSD4ComponentsASTSDPort(message.getSDSource());
+        String sourcePort = SD4ComponentsMill.typeDispatcher().asSD4ComponentsASTSDPort(message.getSDSource()).getName();
         if (!traversed.contains(sourcePort)){
             traversed.add(sourcePort);
           }else{

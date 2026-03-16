@@ -10,3 +10,4 @@ sequencediagram TickInSyncBlock {
   Tick;
   a1.pOut -> a2.pIn : 2;
   }
+  }
