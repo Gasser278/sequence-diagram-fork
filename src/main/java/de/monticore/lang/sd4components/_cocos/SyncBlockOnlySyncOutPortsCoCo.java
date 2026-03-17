@@ -7,7 +7,6 @@ import de.monticore.lang.sd4components._ast.ASTSDSyncBlock;
 import de.monticore.lang.sdbasis._ast.ASTSDSendMessage;
 import de.monticore.symbols.compsymbols._symboltable.PortSymbol;
 import de.se_rwth.commons.logging.Log;
-
 import java.util.stream.Collectors;
 
 /**

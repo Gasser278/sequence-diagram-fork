@@ -2,14 +2,11 @@
 package de.monticore.lang.sd4components._cocos;
 
 import de.monticore.lang.sd4components.SD4ComponentsMill;
-import de.monticore.lang.sd4components._ast.ASTSDPort;
 import de.monticore.lang.sd4components._ast.ASTSDSyncBlock;
 import de.monticore.lang.sdbasis._ast.ASTSDSendMessage;
 import de.se_rwth.commons.logging.Log;
-
 import java.util.List;
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 /**
  * CoCo: inside sync blocks outgoing ports must send only once.
